@@ -16,19 +16,20 @@ type Plan struct {
 	Res string `yaml:res`
 }
 
-func GetPlan() {
+func GetPlan(filename string) error {
 	// yamlを読み込む
-	buf, err := ioutil.ReadFile("zgoc.yml")
+	buf, err := ioutil.ReadFile(filename)
 	if err != nil {
-		panic(err)
+		return err
 	}
 	fmt.Printf("buf: %+v\n", string(buf))
 
 	var data map[interface{}]interface{}
 	err = yaml.Unmarshal(buf, &data)
 	if err != nil {
-		panic(err)
+		return err
 	}
 
 	fmt.Printf("d: %+v\n", data["plans"])
+	return nil
 }
