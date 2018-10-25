@@ -30,7 +30,7 @@ func TestErrYaml(t *testing.T) {
 		t.Error(err)
 	}
 	defer file.Close()
-	fmt.Fprintln(file, "syntax error") //書き込み
+	fmt.Fprintln(file, "test error")
 
 	err = GetPlan("err.yml")
 	if err == nil {
