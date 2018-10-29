@@ -1,6 +1,7 @@
-plans:
+threads:
     -
         url: testtest
-        res: res
+        headers:
+            - X-ACCESS-TOKEN: test
     -
         url: fugafuga

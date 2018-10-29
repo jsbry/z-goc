@@ -6,19 +6,19 @@ import (
 	"testing"
 )
 
-// TestGetPlan テストファイル読み込み
-func TestGetPlan(t *testing.T) {
-	err := GetPlan("zgoc.yml")
+// TestGetConfig テストファイル読み込み
+func TestGetConfig(t *testing.T) {
+	err := GetConfig("zgoc.yml")
 	if err != nil {
 		t.Error(err)
 	}
 }
 
-// TestNoPlan テストファイル読み込み失敗
-func TestNoPlan(t *testing.T) {
-	err := GetPlan("noplan")
+// TestNoConfig テストファイル読み込み失敗
+func TestNoConfig(t *testing.T) {
+	err := GetConfig("noconfig")
 	if err == nil {
-		t.Error("noplan")
+		t.Error("noconfig")
 	}
 }
 
@@ -32,7 +32,7 @@ func TestErrYaml(t *testing.T) {
 	defer file.Close()
 	fmt.Fprintln(file, "test error")
 
-	err = GetPlan("err.yml")
+	err = GetConfig("err.yml")
 	if err == nil {
 		t.Error("syntax yaml")
 	}
