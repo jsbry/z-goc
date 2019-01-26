@@ -33,8 +33,18 @@ func GetConfig(filename string) error {
 	fmt.Printf("%T\n", config.Threads)
 	// リクエスト群の整形
 	for _, request := range config.Threads {
+		fmt.Print("\n range\n\n")
 		fmt.Printf("%+v\n", request.URL)
 		fmt.Printf("%T\n", request.URL)
+		fmt.Printf("%+v\n", request.Headers)
+		fmt.Printf("%T\n", request.Headers)
+		fmt.Print("\n headers \n\n")
+		for _, header := range request.Headers {
+			fmt.Printf("%s\n", header)
+			fmt.Printf("%+v\n", header.(map[interface{}]interface{})["X-ACCESS-TOKEN"])
+			fmt.Printf("%T\n", header)
+			fmt.Printf("%T\n", header.(interface{}))
+		}
 	}
 	return nil
 }

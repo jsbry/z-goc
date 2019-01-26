@@ -2,6 +2,7 @@ threads:
     -
         url: testtest
         headers:
-            - X-ACCESS-TOKEN: test
+            - X-ACCESS-TOKEN: tokenvalue
+            - Content-Type: application/json
     -
         url: fugafuga
